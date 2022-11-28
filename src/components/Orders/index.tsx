@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Order } from "../../types/Order";
 import { api } from "../../utils/api";
 import { OrdersBoard } from "../OrdersBoard";
-import { Container } from "./styles";
 import socketIo from "socket.io-client";
 
 export function Orders() {
@@ -14,7 +13,7 @@ export function Orders() {
     });
 
     socket.on("orders@new", (order) => {
-      setOrders(prevState => prevState.concat(order));
+      setOrders((prevState) => prevState.concat(order));
     });
   }, []);
 
@@ -45,7 +44,7 @@ export function Orders() {
   const done = orders.filter((order) => order.status === "DONE");
 
   return (
-    <Container>
+    <>
       <OrdersBoard
         onChangeOrderStatus={handleOrderStatusChange}
         onCancelOrder={handleCancelOrder}
@@ -67,6 +66,6 @@ export function Orders() {
         title="Pronto"
         orders={done}
       />
-    </Container>
+    </>
   );
 }

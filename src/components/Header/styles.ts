@@ -25,7 +25,14 @@ export const Content = styled.div`
       color: #fff;
       font-weight: 400;
       font-size: 16px;
-      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    button {
+      background: white;
+      border: 0;
+      padding: 8px;
+      border-radius: 16px;
       margin-top: 6px;
     }
   }
